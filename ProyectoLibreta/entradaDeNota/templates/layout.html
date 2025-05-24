@@ -1,0 +1,117 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    {%block head%}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style> <!-- Comienza la sección de estilos CSS internos -->
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente del texto */
+      background-color: #f9f9f9; /* Color de fondo del cuerpo */
+      margin: 0; /* Elimina el margen por defecto */
+      padding: 20px; /* Agrega un espacio interno */
+    }
+
+    h2 {
+      color: #333; /* Color del texto del título */
+      margin-top: 40px; /* Espacio superior antes del h2 */
+    }
+
+    .grupo-campos {
+      background-color: #ffffff; /* Fondo blanco para los contenedores de campos */
+      margin-bottom: 20px; /* Espacio inferior entre grupos */
+      padding: 20px; /* Espacio interno del grupo */
+      border: 1px solid #ddd; /* Borde gris claro */
+      border-radius: 12px; /* Bordes redondeados */
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Sombra sutil */
+    }
+
+    label {
+      display: block; /* Hace que cada etiqueta ocupe toda la línea */
+      margin-top: 12px; /* Espacio superior antes del label */
+      font-weight: 600; /* Negrita */
+      color: #444; /* Color del texto */
+    }
+
+    input, textarea {
+      width: 100%; /* Ocupan todo el ancho disponible */
+      padding: 10px; /* Espacio interno */
+      margin-top: 4px; /* Espacio entre label y input */
+      border: 1px solid #ccc; /* Borde gris */
+      border-radius: 6px; /* Bordes redondeados */
+      box-sizing: border-box; /* Incluye padding y border en el ancho total */
+      font-size: 14px; /* Tamaño del texto */
+    }
+
+    button {
+      background-color: #007BFF; /* Color de fondo azul */
+      color: white; /* Texto en blanco */
+      padding: 10px 20px; /* Espaciado interno */
+      margin-top: 10px; /* Espacio superior */
+      border: none; /* Sin bordes */
+      border-radius: 6px; /* Bordes redondeados */
+      cursor: pointer; /* Cambia el cursor a mano al pasar por encima */
+      font-size: 14px; /* Tamaño del texto */
+    }
+
+    button:hover {
+      background-color: #0056b3; /* Color más oscuro al pasar el cursor */
+    }
+  </style> <!-- Fin de los estilos CSS -->
+
+  {%endblock%}
+
+    <title>
+        {% block title%}
+        
+        {% endblock %}   
+    </title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+
+<body>
+
+    {% block content%}
+    <main>
+
+        <section class="hero">
+            <h1>Your Main Phrase Here</h1>
+        </section>
+
+
+        <section class="features">
+            <div id="feature1" class="feature">
+                <h2>Feature 1</h2>
+                <p>Description of feature 1.</p>
+            </div>
+
+            <div id="feature2" class="feature">
+                <h2>Feature 2</h2>
+                <p>Description of feature 2.</p>
+            </div>
+
+            <div class="feature">
+                <h2>Feature 3</h2>
+                <p>Description of feature 3.</p>
+            </div>
+
+            <div class="feature">
+                <h2>Feature 4</h2>
+                <p>Description of feature 4.</p>
+            </div>  
+        </section>
+
+    </main>
+    {% endblock %}
+
+    <footer>
+        <p>&copy; 2023 My Web Page. All rights reserved.</p>
+    </footer>
+</body>
+</html>
