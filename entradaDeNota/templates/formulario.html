@@ -1,0 +1,100 @@
+{% extends 'layout.html' %}
+
+
+
+{% block title %} Formulario MIIC {% endblock %}
+
+{%block content%} 
+
+<h1>Formulario de registro para ingresar a la red de Semillero de Investigacion MIIC </h1>
+
+<form method="POST" action="{% url 'guardar' %}">
+  {% csrf_token %} <!-- Token de seguridad para formularios en Django -->
+ 
+  <div class="grupo-campos"> <!-- Contenedor con estilo -->
+    <label for="titulo">Titulo del Proyecto</label> <!-- Etiqueta para el input del nombre del proyecto -->
+    <input type="text" id="titulo" name="titulo" /> <!-- Campo de texto para el nombre del proyecto -->
+
+    <label for="descripcion">Descripción del Proyecto</label> <!-- Etiqueta para el textarea -->
+    <textarea id="descripcion" name="descripcion" rows="3"></textarea> <!-- Área de texto para la descripción -->
+  </div>
+
+  <h2>Autores</h2> <!-- Sección de autores -->
+  <div id="autores"> <!-- Contenedor donde se insertarán más autores -->
+    <div class="grupo-campos"> <!-- Primer grupo de campos de autor -->
+      <label for="nombreAutor1">Nombre Autor 1</label>
+      <input type="text" name="nombreAutor[]" placeholder="Ejem. Juan Samaniego"/>
+
+      <label for="correoAutor1">Correo Electrónico Autor 1</label>
+      <input type="email" name="correoAutor[]" placeholder="Ejem. juan@gmail.com"/>
+
+      <label for="telefonoAutor1">Teléfono Autor 1</label>
+      <input type="text" name="telefonoAutor[]" placeholder="Ejem. +507 6567-7678"/>
+    </div>
+  </div>
+  <button type="button" onclick="agregarAutor()">Agregar otro autor</button> <!-- Botón para añadir autores -->
+
+  <h2>Asesores</h2> <!-- Sección de asesores -->
+  <div id="asesores"> <!-- Contenedor donde se insertarán asesores -->
+    <div class="grupo-campos"> <!-- Primer grupo de campos de asesor -->
+      <label for="nombreAsesor1">Nombre Asesor 1</label>
+      <input type="text" name="nombreAsesor[]" placeholder="Ejem. María González"/>
+
+      <label for="correoAsesor1">Correo Electrónico Asesor 1</label>
+      <input type="email" name="correoAsesor[]" placeholder="Ejem. maria@gmail.com"/>
+
+      <label for="telefonoAsesor1">Teléfono Asesor 1</label>
+      <input type="text" name="telefonoAsesor[]" placeholder="Ejem. +507 6123-4567"/>
+    </div>
+  </div>
+  <button type="button" onclick="agregarAsesor()">Agregar otro asesor</button> <!-- Botón para añadir asesores -->
+
+  <div class="grupo-campos">
+    <button type="submit">Enviar Proyecto</button> <!-- Botón para enviar el formulario -->
+  </div>
+
+  <script> <!-- Comienza el script de JavaScript -->
+    let contadorAutores = 1; // Contador para saber cuántos autores hay
+    let contadorAsesores = 1; // Contador para saber cuántos asesores hay
+
+    function agregarAutor() { // Función para añadir un nuevo autor
+      contadorAutores++;
+      const autores = document.getElementById("autores");
+      const nuevoAutor = document.createElement("div");
+      nuevoAutor.className = "grupo-campos"; // Estilo para el nuevo grupo
+      nuevoAutor.innerHTML = `
+        <label for="nombreAutor${contadorAutores}">Nombre Autor ${contadorAutores}</label>
+        <input type="text" name="nombreAutor[]" placeholder="Ejem. Juan Samaniego"/>
+
+        <label for="correoAutor${contadorAutores}">Correo Electrónico Autor ${contadorAutores}</label>
+        <input type="email" name="correoAutor[]" placeholder="Ejem. juan@gmail.com"/>
+
+        <label for="telefonoAutor${contadorAutores}">Teléfono Autor ${contadorAutores}</label>
+        <input type="text" name="telefonoAutor[]" placeholder="Ejem. +507 6567-7678"/>
+      `;
+      autores.appendChild(nuevoAutor); // Agrega el nuevo grupo al contenedor
+    }
+
+    function agregarAsesor() { // Función para añadir un nuevo asesor
+      contadorAsesores++;
+      const asesores = document.getElementById("asesores");
+      const nuevoAsesor = document.createElement("div");
+      nuevoAsesor.className = "grupo-campos"; // Estilo para el nuevo grupo
+      nuevoAsesor.innerHTML = `
+        <label for="nombreAsesor${contadorAsesores}">Nombre Asesor ${contadorAsesores}</label>
+        <input type="text" name="nombreAsesor[]" placeholder="Ejem. María González"/>
+
+        <label for="correoAsesor${contadorAsesores}">Correo Electrónico Asesor ${contadorAsesores}</label>
+        <input type="email" name="correoAsesor[]" placeholder="Ejem. maria@gmail.com"/>
+
+        <label for="telefonoAsesor${contadorAsesores}">Teléfono Asesor ${contadorAsesores}</label>
+        <input type="text" name="telefonoAsesor[]" placeholder="Ejem. +507 6123-4567"/>
+      `;
+      asesores.appendChild(nuevoAsesor); // Agrega el nuevo grupo al contenedor
+    }
+  </script> <!-- Fin del script -->
+</form>
+
+{% endblock %}
+
+
