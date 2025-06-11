@@ -25,7 +25,8 @@ SECRET_KEY = 'django-insecure-w1478!#t(za^*pn%fll9aflzfe*zj)!06-!qyrbwru=qf4s26i
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['.onrender.com']
+ALLOWED_HOSTS = ['https://formulariomiic.onrender.com,'
+                '.onrender.com']
 
 
 # Application definition
