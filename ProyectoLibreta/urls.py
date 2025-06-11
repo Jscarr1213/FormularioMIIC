@@ -17,10 +17,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from django.views.generic.base import RedirectView
+
 from entradaDeNota import views as entradaDeNota_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', RedirectView.as_view(url='/formulario/', permanent=True)),
     path('formulario/', entradaDeNota_views.formulario, name='formulario'),
     path('guardar-formulario/', entradaDeNota_views.guardar_formulario, name='guardar')
 ]
