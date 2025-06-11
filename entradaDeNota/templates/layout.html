@@ -3,67 +3,135 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
 <head>
-    {%block head%}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style> <!-- Comienza la sección de estilos CSS internos -->
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente del texto */
-      background-color: #f9f9f9; /* Color de fondo del cuerpo */
-      margin: 0; /* Elimina el margen por defecto */
-      padding: 20px; /* Agrega un espacio interno */
-    }
+    
+    <style>
+  body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(90deg, rgba(131, 58, 180, 1) 0%, rgba(245, 100, 115, 0.88) 49%, rgba(252, 176, 69, 1) 100%);
+  margin: 0;
+  padding: 20px;
+}
 
-    h2 {
-      color: #333; /* Color del texto del título */
-      margin-top: 40px; /* Espacio superior antes del h2 */
-    }
+h1 {
+  color: #fff;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  font-size: 2.8em;
+  text-align: center;
+  margin-bottom: 32px;
+  padding: 0 10px;
+}
 
-    .grupo-campos {
-      background-color: #ffffff; /* Fondo blanco para los contenedores de campos */
-      margin-bottom: 20px; /* Espacio inferior entre grupos */
-      padding: 20px; /* Espacio interno del grupo */
-      border: 1px solid #ddd; /* Borde gris claro */
-      border-radius: 12px; /* Bordes redondeados */
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Sombra sutil */
-    }
+h2 {
+  color: white;
+  text-shadow: -0.4px -0.4px 0 #000, 0.4px -0.4px 0 #000, -0.4px 0.4px 0 #000, 0.4px 0.4px 0 #000;
+  margin-top: 20px;
+  text-align: center;
+}
 
-    label {
-      display: block; /* Hace que cada etiqueta ocupe toda la línea */
-      margin-top: 12px; /* Espacio superior antes del label */
-      font-weight: 600; /* Negrita */
-      color: #444; /* Color del texto */
-    }
+small {
+  display: block;
+  text-align: center;
+  color: #cc0000;
+  text-shadow: -0.3px -0.3px 0 #000, 0.3px -0.3px 0 #000, -0.3px 0.3px 0 #000, 0.3px 0.3px 0 #000;
+  margin-bottom: 8px;
+}
 
-    input, textarea {
-      width: 100%; /* Ocupan todo el ancho disponible */
-      padding: 10px; /* Espacio interno */
-      margin-top: 4px; /* Espacio entre label y input */
-      border: 1px solid #ccc; /* Borde gris */
-      border-radius: 6px; /* Bordes redondeados */
-      box-sizing: border-box; /* Incluye padding y border en el ancho total */
-      font-size: 14px; /* Tamaño del texto */
-    }
+.grupo-campos {
+  background-color: #fff;
+  margin-bottom: 30px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  padding: 20px;
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
 
-    button {
-      background-color: #007BFF; /* Color de fondo azul */
-      color: white; /* Texto en blanco */
-      padding: 10px 20px; /* Espaciado interno */
-      margin-top: 10px; /* Espacio superior */
-      border: none; /* Sin bordes */
-      border-radius: 6px; /* Bordes redondeados */
-      cursor: pointer; /* Cambia el cursor a mano al pasar por encima */
-      font-size: 14px; /* Tamaño del texto */
-    }
+.centrado {
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
+}
 
-    button:hover {
-      background-color: #0056b3; /* Color más oscuro al pasar el cursor */
-    }
-  </style> <!-- Fin de los estilos CSS -->
+label {
+  display: block;
+  margin-top: 12px;
+  font-weight: 600;
+  color: #444;
+  text-align: center;
+}
 
-  {%endblock%}
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 4px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.contenedor-boton {
+  text-align: center;
+}
+
+button {
+  background-color: #007BFF;
+  color: white;
+  padding: 10px 20px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+
+  /*fijar ancho y centrar */
+  width: 300px;
+  max-width: 100%;
+  display: block;
+  margin: 20px auto;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+footer {
+  text-align: center;
+  color: white;
+  text-shadow: -0.4px -0.4px 0 #000, 0.4px -0.4px 0 #000, -0.4px 0.4px 0 #000, 0.4px 0.4px 0 #000;
+  margin-top: 32px;
+}
+
+/* ------------------------ */
+/* MEDIA QUERY PARA MÓVILES */
+/* ------------------------ */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2em;
+  }
+
+  .grupo-campos, .centrado {
+    padding: 0 10px;
+  }
+
+  input, textarea {
+    font-size: 16px;
+  }
+
+}
+
+</style>
+
+
+{%block head%}
+{%endblock%}
 
     <title>
         {% block title%}
@@ -78,40 +146,11 @@
 <body>
 
     {% block content%}
-    <main>
-
-        <section class="hero">
-            <h1>Your Main Phrase Here</h1>
-        </section>
-
-
-        <section class="features">
-            <div id="feature1" class="feature">
-                <h2>Feature 1</h2>
-                <p>Description of feature 1.</p>
-            </div>
-
-            <div id="feature2" class="feature">
-                <h2>Feature 2</h2>
-                <p>Description of feature 2.</p>
-            </div>
-
-            <div class="feature">
-                <h2>Feature 3</h2>
-                <p>Description of feature 3.</p>
-            </div>
-
-            <div class="feature">
-                <h2>Feature 4</h2>
-                <p>Description of feature 4.</p>
-            </div>  
-        </section>
-
-    </main>
+    
     {% endblock %}
 
     <footer>
-        <p>&copy; 2023 My Web Page. All rights reserved.</p>
+        <p>&copy; MIIC 2025</p>
     </footer>
 </body>
 </html>

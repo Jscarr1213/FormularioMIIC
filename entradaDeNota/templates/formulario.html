@@ -10,33 +10,38 @@
 
 <form method="POST" action="{% url 'guardar' %}">
   {% csrf_token %} <!-- Token de seguridad para formularios en Django -->
- 
-  <div class="grupo-campos"> <!-- Contenedor con estilo -->
-    <label for="titulo">Titulo del Proyecto</label> <!-- Etiqueta para el input del nombre del proyecto -->
-    <input type="text" id="titulo" name="titulo" /> <!-- Campo de texto para el nombre del proyecto -->
 
-    <label for="descripcion">Descripción del Proyecto</label> <!-- Etiqueta para el textarea -->
+  <small>* Este campo es obligatorio</small>
+
+  <div class="grupo-campos centrado"> <!-- Contenedor con estilo -->
+    <label for="titulo"><span style="color: red">*</span> Titulo del Proyecto</label> <!-- Etiqueta para el input del nombre del proyecto -->
+    <input type="text" id="titulo" name="titulo" required/> <!-- Campo de texto para el nombre del proyecto -->
+
+    <label for="descripcion"> Descripción del Proyecto</label> <!-- Etiqueta para el textarea -->
     <textarea id="descripcion" name="descripcion" rows="3"></textarea> <!-- Área de texto para la descripción -->
   </div>
 
   <h2>Autores</h2> <!-- Sección de autores -->
   <div id="autores"> <!-- Contenedor donde se insertarán más autores -->
-    <div class="grupo-campos"> <!-- Primer grupo de campos de autor -->
-      <label for="nombreAutor1">Nombre Autor 1</label>
-      <input type="text" name="nombreAutor[]" placeholder="Ejem. Juan Samaniego"/>
+    <div class="grupo-campos centrado"> <!-- Primer grupo de campos de autor -->
+      <label for="nombreAutor1"><span style="color: red">*</span> Nombre Autor 1</label>
+      <input type="text" name="nombreAutor[]" placeholder="Ejem. Juan Samaniego" required/>
 
-      <label for="correoAutor1">Correo Electrónico Autor 1</label>
-      <input type="email" name="correoAutor[]" placeholder="Ejem. juan@gmail.com"/>
+      <label for="correoAutor1"><span style="color: red">*</span> Correo Electrónico Autor 1</label>
+      <input type="email" name="correoAutor[]" placeholder="Ejem. juan@gmail.com" required/>
 
-      <label for="telefonoAutor1">Teléfono Autor 1</label>
-      <input type="text" name="telefonoAutor[]" placeholder="Ejem. +507 6567-7678"/>
+      <label for="telefonoAutor1"><span style="color: red">*</span >Teléfono Autor 1</label>
+      <input type="text" name="telefonoAutor[]" placeholder="Ejem. +507 6567-7678" required/>
     </div>
   </div>
-  <button type="button" onclick="agregarAutor()">Agregar otro autor</button> <!-- Botón para añadir autores -->
+
+  <div class="contenedor-boton">
+    <button type="button" onclick="agregarAutor()">Agregar otro autor</button> <!-- Botón para añadir autores -->
+  </div>
 
   <h2>Asesores</h2> <!-- Sección de asesores -->
   <div id="asesores"> <!-- Contenedor donde se insertarán asesores -->
-    <div class="grupo-campos"> <!-- Primer grupo de campos de asesor -->
+    <div class="grupo-campos centrado"> <!-- Primer grupo de campos de asesor -->
       <label for="nombreAsesor1">Nombre Asesor 1</label>
       <input type="text" name="nombreAsesor[]" placeholder="Ejem. María González"/>
 
@@ -47,9 +52,12 @@
       <input type="text" name="telefonoAsesor[]" placeholder="Ejem. +507 6123-4567"/>
     </div>
   </div>
-  <button type="button" onclick="agregarAsesor()">Agregar otro asesor</button> <!-- Botón para añadir asesores -->
 
-  <div class="grupo-campos">
+  <div class="contenedor-boton">
+    <button type="button" onclick="agregarAsesor()">Agregar otro asesor</button> <!-- Botón para añadir asesores -->
+  </div>
+
+  <div class="contenedor-boton"> <!-- Contenedor para el botón de envío -->
     <button type="submit">Enviar Proyecto</button> <!-- Botón para enviar el formulario -->
   </div>
 
@@ -61,7 +69,7 @@
       contadorAutores++;
       const autores = document.getElementById("autores");
       const nuevoAutor = document.createElement("div");
-      nuevoAutor.className = "grupo-campos"; // Estilo para el nuevo grupo
+      nuevoAutor.className = "grupo-campos centrado espacio"; // Estilo para el nuevo grupo
       nuevoAutor.innerHTML = `
         <label for="nombreAutor${contadorAutores}">Nombre Autor ${contadorAutores}</label>
         <input type="text" name="nombreAutor[]" placeholder="Ejem. Juan Samaniego"/>
@@ -79,7 +87,7 @@
       contadorAsesores++;
       const asesores = document.getElementById("asesores");
       const nuevoAsesor = document.createElement("div");
-      nuevoAsesor.className = "grupo-campos"; // Estilo para el nuevo grupo
+      nuevoAsesor.className = "grupo-campos centrado espacio"; // Estilo para el nuevo grupo
       nuevoAsesor.innerHTML = `
         <label for="nombreAsesor${contadorAsesores}">Nombre Asesor ${contadorAsesores}</label>
         <input type="text" name="nombreAsesor[]" placeholder="Ejem. María González"/>

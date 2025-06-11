@@ -15,6 +15,11 @@ def guardar_formulario(request):
         titulo = request.POST['titulo']
         descripcion = request.POST['descripcion']
 
+        # Validar que los campos no estén vacíos
+        if not titulo:
+            return HttpResponse("El campos título es obligatorio.")
+        
+
         proyecto = Proyecto(    
                 titulo = titulo,
                 descripcion = descripcion
@@ -25,11 +30,15 @@ def guardar_formulario(request):
         correoAutor1 = request.POST.getlist('correoAutor[]')
         telefonoAutor1 = request.POST.getlist('telefonoAutor[]')
 
+        if not nombreAutor1 and not correoAutor1 and not telefonoAutor1:
+            return HttpResponse("Los campos del autor son obligatorios.")
+
         nombreAsesor1 = request.POST.getlist('nombreAsesor[]')
         correoAsesor1 = request.POST.getlist('correoAsesor[]')
         telefonoAsesor1 = request.POST.getlist('telefonoAsesor[]')
         # Guardar los datos en la base de datos
     
+        
 
         for nombre, correo, telefono in zip(nombreAutor1, correoAutor1, telefonoAutor1):
             Autor.objects.create(
