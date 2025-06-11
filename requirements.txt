@@ -20,7 +20,6 @@ pylint==3.3.7
 pylint-django==2.6.1
 pylint-plugin-utils==0.8.2
 python-json-logger==3.3.0
-pywin32==310
 pywinpty==2.0.15
 PyYAML==6.0.2
 pyzmq==26.4.0
