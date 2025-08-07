@@ -24,13 +24,13 @@
   <h2>Autores</h2> <!-- Sección de autores -->
   <div id="autores"> <!-- Contenedor donde se insertarán más autores -->
     <div class="grupo-campos centrado"> <!-- Primer grupo de campos de autor -->
-      <label for="nombreAutor1"><span style="color: red">*</span> Nombre Autor 1</label>
+      <label for="nombreAutor"><span style="color: red">*</span> Nombre Autor 1</label>
       <input type="text" name="nombreAutor[]" placeholder="Ejem. Juan Samaniego" required/>
 
-      <label for="correoAutor1"><span style="color: red">*</span> Correo Electrónico Autor 1</label>
+      <label for="correoAutor"><span style="color: red">*</span> Correo Electrónico Autor 1</label>
       <input type="email" name="correoAutor[]" placeholder="Ejem. juan@gmail.com" required/>
 
-      <label for="telefonoAutor1"><span style="color: red">*</span >Teléfono Autor 1</label>
+      <label for="telefonoAutor"><span style="color: red">*</span >Teléfono Autor 1</label>
       <input type="text" name="telefonoAutor[]" placeholder="Ejem. +507 6567-7678" required/>
     </div>
   </div>
@@ -42,13 +42,13 @@
   <h2>Asesores</h2> <!-- Sección de asesores -->
   <div id="asesores"> <!-- Contenedor donde se insertarán asesores -->
     <div class="grupo-campos centrado"> <!-- Primer grupo de campos de asesor -->
-      <label for="nombreAsesor1">Nombre Asesor 1</label>
+      <label for="nombreAsesor">Nombre Asesor 1</label>
       <input type="text" name="nombreAsesor[]" placeholder="Ejem. María González"/>
 
-      <label for="correoAsesor1">Correo Electrónico Asesor 1</label>
+      <label for="correoAsesor">Correo Electrónico Asesor 1</label>
       <input type="email" name="correoAsesor[]" placeholder="Ejem. maria@gmail.com"/>
 
-      <label for="telefonoAsesor1">Teléfono Asesor 1</label>
+      <label for="telefonoAsesor">Teléfono Asesor 1</label>
       <input type="text" name="telefonoAsesor[]" placeholder="Ejem. +507 6123-4567"/>
     </div>
   </div>
@@ -72,13 +72,13 @@
       nuevoAutor.className = "grupo-campos centrado espacio"; // Estilo para el nuevo grupo
       nuevoAutor.innerHTML = `
         <label for="nombreAutor${contadorAutores}">Nombre Autor ${contadorAutores}</label>
-        <input type="text" name="nombreAutor[]" placeholder="Ejem. Juan Samaniego"/>
+        <input type="text" name="nombreAutor[]" placeholder="Ejem. Juan Samaniego" required/>
 
         <label for="correoAutor${contadorAutores}">Correo Electrónico Autor ${contadorAutores}</label>
-        <input type="email" name="correoAutor[]" placeholder="Ejem. juan@gmail.com"/>
+        <input type="email" name="correoAutor[]" placeholder="Ejem. juan@gmail.com" required/>
 
         <label for="telefonoAutor${contadorAutores}">Teléfono Autor ${contadorAutores}</label>
-        <input type="text" name="telefonoAutor[]" placeholder="Ejem. +507 6567-7678"/>
+        <input type="text" name="telefonoAutor[]" placeholder="Ejem. +507 6567-7678" required/>
       `;
       autores.appendChild(nuevoAutor); // Agrega el nuevo grupo al contenedor
     }
@@ -90,13 +90,13 @@
       nuevoAsesor.className = "grupo-campos centrado espacio"; // Estilo para el nuevo grupo
       nuevoAsesor.innerHTML = `
         <label for="nombreAsesor${contadorAsesores}">Nombre Asesor ${contadorAsesores}</label>
-        <input type="text" name="nombreAsesor[]" placeholder="Ejem. María González"/>
+        <input type="text" name="nombreAsesor[]" placeholder="Ejem. María González" required/>
 
         <label for="correoAsesor${contadorAsesores}">Correo Electrónico Asesor ${contadorAsesores}</label>
-        <input type="email" name="correoAsesor[]" placeholder="Ejem. maria@gmail.com"/>
+        <input type="email" name="correoAsesor[]" placeholder="Ejem. maria@gmail.com" required/>
 
         <label for="telefonoAsesor${contadorAsesores}">Teléfono Asesor ${contadorAsesores}</label>
-        <input type="text" name="telefonoAsesor[]" placeholder="Ejem. +507 6123-4567"/>
+        <input type="text" name="telefonoAsesor[]" placeholder="Ejem. +507 6123-4567" required/>
       `;
       asesores.appendChild(nuevoAsesor); // Agrega el nuevo grupo al contenedor
     }

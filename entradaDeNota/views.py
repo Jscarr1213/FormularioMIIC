@@ -26,33 +26,33 @@ def guardar_formulario(request):
                 )
         proyecto.save()
 
-        nombreAutor1 = request.POST.getlist('nombreAutor[]')
-        correoAutor1 = request.POST.getlist('correoAutor[]')
-        telefonoAutor1 = request.POST.getlist('telefonoAutor[]')
+        nombreAutor = request.POST.getlist('nombreAutor[]')
+        correoAutor = request.POST.getlist('correoAutor[]')
+        telefonoAutor = request.POST.getlist('telefonoAutor[]')
 
-        if not nombreAutor1 and not correoAutor1 and not telefonoAutor1:
+        if not nombreAutor and not correoAutor and not telefonoAutor:
             return HttpResponse("Los campos del autor son obligatorios.")
 
-        nombreAsesor1 = request.POST.getlist('nombreAsesor[]')
-        correoAsesor1 = request.POST.getlist('correoAsesor[]')
-        telefonoAsesor1 = request.POST.getlist('telefonoAsesor[]')
+        nombreAsesor = request.POST.getlist('nombreAsesor[]')
+        correoAsesor = request.POST.getlist('correoAsesor[]')
+        telefonoAsesor = request.POST.getlist('telefonoAsesor[]')
         # Guardar los datos en la base de datos
     
         
 
-        for nombre, correo, telefono in zip(nombreAutor1, correoAutor1, telefonoAutor1):
+        for nombre, correo, telefono in zip(nombreAutor, correoAutor, telefonoAutor):
             Autor.objects.create(
-                nombreAutor1=nombre,
-                correoAutor1=correo,
-                telefonoAutor1=telefono,
+                nombreAutor=nombre,
+                correoAutor=correo,
+                telefonoAutor=telefono,
                 proyecto=proyecto
             )
         
-        for nombre, correo, telefono in zip(nombreAsesor1, correoAsesor1, telefonoAsesor1):
+        for nombre, correo, telefono in zip(nombreAsesor, correoAsesor, telefonoAsesor):
             Asesor.objects.create(
-                nombreAsesor1=nombre,
-                correoAsesor1=correo,
-                telefonoAsesor1=telefono,
+                nombreAsesor=nombre,
+                correoAsesor=correo,
+                telefonoAsesor=telefono,
                 proyecto=proyecto
             )
 

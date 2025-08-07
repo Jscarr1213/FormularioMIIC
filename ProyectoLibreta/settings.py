@@ -75,8 +75,12 @@ WSGI_APPLICATION = 'ProyectoLibreta.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'formulariomiic',
+        'USER': 'root',
+        'PASSWORD': 'Onepiece12!',
+        'HOST': 'localhost',  # O la IP si está en otro servidor
+        'PORT': '3306',       # Puerto por defecto de MySQL
     }
 }
 
